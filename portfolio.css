@@ -395,7 +395,7 @@ th,td{
   text-align: center;
 }
 .card{
-  width: 25rem; 
+  width: 20rem; 
   background-color: black;
   text-align: justify;
   border: 2px outset rgb(160, 156, 156);
