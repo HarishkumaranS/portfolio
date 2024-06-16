@@ -201,7 +201,6 @@ p,table,h1,h2,h4{
 }
 @media only screen and (max-width:760px) {
   .home_data {
-    padding-top: 5rem;
     padding-left: 2rem;
   }
   .d-flex{
