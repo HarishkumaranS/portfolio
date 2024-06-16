@@ -200,9 +200,6 @@ p,table,h1,h2,h4{
   row-gap: 1rem;
 }
 @media only screen and (max-width:760px) {
-  .home_data {
-    padding-left: 2rem;
-  }
   .d-flex{
     padding-left: 1rem;
   }
