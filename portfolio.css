@@ -201,7 +201,7 @@ p,table,h1,h2,h4{
 }
 @media only screen and (max-width:760px) {
   .home_data {
-    padding-top: 10rem;
+    padding-top: 5rem;
     padding-left: 2rem;
   }
   .d-flex{
@@ -210,7 +210,7 @@ p,table,h1,h2,h4{
 }
 .home_data {
   align-self: center;
-  padding: -20rem;
+  padding: -10rem;
   justify-items: center;
 }
 
