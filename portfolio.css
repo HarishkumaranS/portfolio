@@ -311,6 +311,8 @@ p,table,h1,h2,h4{
 }
 th,td{
   text-align: left;
+  vertical-align: text-top;
+  padding: 5px;
 }
 /* SKILLS */
 .skills_container {
