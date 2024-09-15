@@ -170,10 +170,23 @@ p,table,h1,h2,h4{
 }
 
 .nav_logo {
+  display: flex;
+/* margin: 5px; */
   color: var(--second-color);
   text-decoration: none;
 }
+.name{
+  padding-top: 10px;
+  padding-left: 10px;
 
+}
+.hai_logo
+{
+  height:45px;
+  width: 45px;
+  /* padding-right: 5px; */
+  border-radius: 40px;
+}
 .nav_toggle {
   color: var(--second-color);
   font-size: 1.5rem;
