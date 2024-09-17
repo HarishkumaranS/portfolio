@@ -568,7 +568,7 @@ margin: 1.5rem;
   .home_data {
     position: absolute;
     align-self: center;
-    padding-bottom :10rem;
+    padding-bottom :-10rem;
     justify-items: center;
   }
   .about_container,
