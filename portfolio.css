@@ -565,7 +565,12 @@ margin: 1.5rem;
   .home_img svg {
     width: 100%;
   }
-
+  .home_data {
+    position: absolute;
+    align-self: center;
+    padding-bottom :10rem;
+    justify-items: center;
+  }
   .about_container,
   .skills_container {
     grid-template-columns: repeat(2, 1fr);
