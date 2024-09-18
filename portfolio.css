@@ -113,6 +113,15 @@ p,table,h1,h2,h4{
   margin-left: var(--mb-2);
   margin-right: var(--mb-2);
 }
+.bd_grid_home{
+  width: 100vw;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-column-gap: 2rem;
+  width: calc(100% - 2rem);
+  margin-left: var(--mb-2);
+  margin-right: var(--mb-2);
+}
 
 .header {
   width: 100%;
@@ -221,6 +230,18 @@ p,table,h1,h2,h4{
 @media only screen and (max-width:760px) {
   .d-flex{
     padding-left: 1rem;
+  }
+}
+@media only screen and (min-width:761px)
+{
+  .home_data {
+    padding-left: 20rem;
+  }
+}
+@media only screen and (max-width:760px)
+{
+  .home_data {
+    padding-top: 5rem;
   }
 }
 .home_data {
@@ -568,7 +589,7 @@ margin: 1.5rem;
   .home_data {
     position: absolute;
     align-self: center;
-    padding-bottom :-10rem;
+    padding-bottom :10rem;
     justify-items: center;
   }
   .about_container,

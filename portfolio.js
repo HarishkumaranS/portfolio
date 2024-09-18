@@ -30,10 +30,20 @@
   }
 
   // Add a double-click event listener to the entire page
+//   window.onload = function() {
+//     const element = document.documentElement;
+//           if (element.requestFullscreen) {
+//               element.requestFullscreen();
+//           } else if (element.mozRequestFullScreen) { // Firefox
+//               element.mozRequestFullScreen();
+//           } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
+//               element.webkitRequestFullscreen();
+//           } else if (element.msRequestFullscreen) { // IE/Edge
+//               element.msRequestFullscreen();
+//           }
+// }
   document.addEventListener("dblclick", toggleFullscreen);
-  window.onload = function() {
-      toggleFullscreen();
-  }
+  
 // SHOW MENU
 const showMenu = (toggleId, navId) => {
     const toggle = document.getElementById(toggleId),
@@ -96,7 +106,9 @@ class Particle {
 
   draw() {
     ctx.fillStyle = 'rgba(255, 255, 255, 0.8)';
-    ctx.strokeStyle = 'white';
+    const colors=['#FF0000','#00FF00','#0000FF','#FFFFFF','orange'];
+    const random_color=colors[Math.floor(Math.random()*colors.length)];
+    ctx.strokeStyle = random_color;
     ctx.lineWidth = 2;
     ctx.beginPath();
     ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
