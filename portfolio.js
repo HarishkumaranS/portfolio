@@ -30,18 +30,18 @@
   }
 
   // Add a double-click event listener to the entire page
-//   window.onload = function() {
-//     const element = document.documentElement;
-//           if (element.requestFullscreen) {
-//               element.requestFullscreen();
-//           } else if (element.mozRequestFullScreen) { // Firefox
-//               element.mozRequestFullScreen();
-//           } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
-//               element.webkitRequestFullscreen();
-//           } else if (element.msRequestFullscreen) { // IE/Edge
-//               element.msRequestFullscreen();
-//           }
-// }
+  window.onload = function() {
+    const element = document.documentElement;
+          if (element.requestFullscreen) {
+              element.requestFullscreen();
+          } else if (element.mozRequestFullScreen) { // Firefox
+              element.mozRequestFullScreen();
+          } else if (element.webkitRequestFullscreen) { // Chrome, Safari, Opera
+              element.webkitRequestFullscreen();
+          } else if (element.msRequestFullscreen) { // IE/Edge
+              element.msRequestFullscreen();
+          }
+}
   document.addEventListener("dblclick", toggleFullscreen);
   
 // SHOW MENU
@@ -173,3 +173,200 @@ window.addEventListener('resize', function () {
 
 init();
 animate();
+// background Particle
+
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {
+        "value": 80,
+        "density": {
+          "enable": true,
+          "value_area": 800
+        }
+      },
+      "color": {
+        "value": "#ffffff"
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 0,
+          "color": "#000000"
+        },
+        "polygon": {
+          "nb_sides": 5
+        }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": {
+          "enable": false,
+          "speed": 1,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 3,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 40,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 6,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false,
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": {
+          "enable": true,
+          "mode": "repulse"
+        },
+        "onclick": {
+          "enable": true,
+          "mode": "push"
+        },
+        "resize": true
+      },
+      "modes": {
+        "grab": {
+          "distance": 400,
+          "line_linked": {
+            "opacity": 1
+          }
+        },
+        "bubble": {
+          "distance": 400,
+          "size": 40,
+          "duration": 2,
+          "opacity": 8,
+          "speed": 3
+        },
+        "repulse": {
+          "distance": 200,
+          "duration": 0.4
+        },
+        "push": {
+          "particles_nb": 4
+        },
+        "remove": {
+          "particles_nb": 2
+        }
+      }
+    },
+    "retina_detect": true
+  });
+  // project background canvas star
+  const backgroundCanvas = document.getElementById('backgroundCanvas');
+  const canvasContext = backgroundCanvas.getContext('2d');
+
+  // Adjust canvas size
+  function resizeCanvas() {
+      backgroundCanvas.width = window.innerWidth;
+      backgroundCanvas.height = window.innerHeight;
+  }
+
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+
+  // Function to generate a random color
+  function getRandomColor() {
+      const letters = '0123456789ABCDEF';
+      let color = '#';
+      for (let i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+      }
+      return color;
+  }
+
+  // Function to draw a star
+  function drawStar(x, y, radius, points, inset, color) {
+      canvasContext.beginPath();
+      canvasContext.moveTo(x, y - radius);
+      for (let i = 0; i < points; i++) {
+          const angle = (i * Math.PI * 2) / points;
+          const xOuter = x + Math.cos(angle) * radius;
+          const yOuter = y - Math.sin(angle) * radius;
+          canvasContext.lineTo(xOuter, yOuter);
+          const xInner = x + Math.cos(angle + Math.PI / points) * radius * inset;
+          const yInner = y - Math.sin(angle + Math.PI / points) * radius * inset;
+          canvasContext.lineTo(xInner, yInner);
+      }
+      canvasContext.closePath();
+      canvasContext.fillStyle = color;
+      canvasContext.fill();
+  }
+
+  // Create an array of stars with random colors
+  let stars = [];
+  function createStars() {
+      for (let i = 0; i < 100; i++) {
+          stars.push({
+              x: Math.random() * backgroundCanvas.width,
+              y: Math.random() * backgroundCanvas.height,
+              radius: Math.random() * 5 + 2,
+              points: 5,
+              inset: 0.5,
+              color: getRandomColor(), // Assign random color
+              dx: (Math.random() - 0.5) * 2,
+              dy: (Math.random() - 0.5) * 2,
+              blinkSpeed: Math.random() * 0.05 + 0.01 // Random blink speed
+          });
+      }
+  }
+
+  // Animate the stars with blinking effect
+  function animateStars() {
+      canvasContext.clearRect(0, 0, backgroundCanvas.width, backgroundCanvas.height);
+
+      stars.forEach(star => {
+          // Randomly change star color to create a blinking effect
+          if (Math.random() < star.blinkSpeed) {
+              star.color = getRandomColor(); // Change to random color
+          }
+
+          // Draw the star with the current color
+          drawStar(star.x, star.y, star.radius, star.points, star.inset, star.color);
+
+          // Move stars
+          star.x += star.dx;
+          star.y += star.dy;
+
+          // Bounce off the edges
+          if (star.x + star.radius > backgroundCanvas.width || star.x - star.radius < 0) {
+              star.dx = -star.dx;
+          }
+          if (star.y + star.radius > backgroundCanvas.height || star.y - star.radius < 0) {
+              star.dy = -star.dy;
+          }
+      });
+
+      requestAnimationFrame(animateStars); // Loop the animation
+  }
+
+  createStars();
+  animateStars(); // Start the animation
