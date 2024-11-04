@@ -110,7 +110,7 @@ function showProjects(projects) {
     projects.slice(0, 10).filter(project => project.category != "android").forEach(project => {
         projectHTML += `
         <div class="box tilt">
-      <img draggable="false" src="./foodworld.png" alt="project" />
+      <img draggable="false" src="https://i.ibb.co/hXFVRQn/foodworld.png" alt="project" />
       <div class="content">
         <div class="tag">
         <h3>${project.name}</h3>
