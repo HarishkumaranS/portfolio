@@ -1,8 +1,8 @@
 [
   {
     "name": "Food World",
-    "desc": "Food World is a responsive food-ordering platform with browsing, ordering, and admin management, built with HTML, CSS, JavaScript, PHP, and MySQL.",
-    "image": "foodworld",
+    "desc": "Food World is a responsive food-ordering platform built with HTML, CSS, JavaScript, PHP, and MySQL.",
+    "image": "https://i.ibb.co/hXFVRQn/foodworld.png",
     "links": {
       "view": "http://foodworld.rf.gd",
       "code": "#"
