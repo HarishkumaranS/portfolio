@@ -38,20 +38,20 @@ $(document).ready(function () {
     });
 
     // <!-- emailjs to mail contact form data -->
-    $("#contact-form").submit(function (event) {
-        emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
+    // $("#contact-form").submit(function (event) {
+    //     emailjs.init("user_TTDmetQLYgWCLzHTDgqxm");
 
-        emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
-            .then(function (response) {
-                console.log('SUCCESS!', response.status, response.text);
-                document.getElementById("contact-form").reset();
-                alert("Form Submitted Successfully");
-            }, function (error) {
-                console.log('FAILED...', error);
-                alert("Form Submission Failed! Try Again");
-            });
-        event.preventDefault();
-    });
+    //     emailjs.sendForm('contact_service', 'template_contact', '#contact-form')
+    //         .then(function (response) {
+    //             console.log('SUCCESS!', response.status, response.text);
+    //             document.getElementById("contact-form").reset();
+    //             alert("Form Submitted Successfully");
+    //         }, function (error) {
+    //             console.log('FAILED...', error);
+    //             alert("Form Submission Failed! Try Again");
+    //         });
+    //     event.preventDefault();
+    // });
     // <!-- emailjs to mail contact form data -->
 
 });
@@ -110,7 +110,7 @@ function showProjects(projects) {
     projects.slice(0, 10).filter(project => project.category != "android").forEach(project => {
         projectHTML += `
         <div class="box tilt">
-      <img draggable="false" src="${project.image}" alt="project" />
+      <img draggable="false" src="/assets/images/projects/${project.image}.png" alt="project" />
       <div class="content">
         <div class="tag">
         <h3>${project.name}</h3>
@@ -227,3 +227,17 @@ srtop.reveal('.work .box', { interval: 200 });
 /* SCROLL CONTACT */
 srtop.reveal('.contact .container', { delay: 400 });
 srtop.reveal('.contact .container .form-group', { delay: 400 });
+// html for to google form
+const scriptURL = 'https://script.google.com/macros/s/AKfycbxhaZHyTUO02C70g5bIva171unoenfdnZzwwe_bdiXwBoROPlXvHOYDfWK-iHii9QBuVw/exec'
+
+
+const form = document.forms['contact-form']
+
+
+form.addEventListener('submit', e => {
+  e.preventDefault()
+  fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+  .then(response => alert("Thank you! your form is submitted successfully." ))
+  .then(() => { window.location.reload(); })
+  .catch(error => console.error('Error!', error.message))
+})
