@@ -28,7 +28,18 @@ $(document).ready(function () {
             }
         });
     });
-
+    // dynamic title
+    document.addEventListener('visibilitychange',
+        function () {
+            if (document.visibilityState === "visible") {
+                document.title = "Portfolio | Harish Kumaran";
+                $("#favicon").attr("href", "./assets/images/hero.png");
+            }
+            else {
+                document.title = "Come Back To Portfolio";
+                $("#favicon").attr("href", "assets/images/come.png");
+            }
+        });
     // smooth scrolling
     $('a[href*="#"]').on('click', function (e) {
         e.preventDefault();
