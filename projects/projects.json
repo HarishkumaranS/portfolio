@@ -7,5 +7,14 @@
       "view": "#",
       "code": "https://github.com/HarishkumaranS/rms.git"
     }
+  },
+  {
+    "name": "Simple Calculator",
+    "desc": "A simple web-based calculator built with HTML, CSS, and JavaScript, featuring memory functions, backspace, error handling, and keyboard shortcuts.",
+    "image": "assets/images/project_image/calculator.png",
+    "links": {
+      "view": "#",
+      "code": "https://github.com/HarishkumaranS/rms.git"
+    }
   }
 ]
