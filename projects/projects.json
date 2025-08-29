@@ -10,7 +10,7 @@
   },
   {
     "name": "Simple Calculator",
-    "desc": "A simple web-based calculator built with HTML, CSS, and JavaScript, featuring memory functions, backspace, error handling, and keyboard shortcuts.",
+    "desc": "Simple web calculator with memory functions, backspace, error handling, and keyboard shortcuts.",
     "image": "assets/images/project_image/calculator.png",
     "links": {
       "view": "#",
